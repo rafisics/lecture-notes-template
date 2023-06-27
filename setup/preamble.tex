@@ -1,0 +1,628 @@
+% basics
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+% \usepackage[dutch]{babel}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={black},
+    citecolor={black},
+    urlcolor={blue!80!black},
+    % backref=true, 
+    % pagebackref=true
+}
+
+% Page Margins
+\usepackage[
+    margin=2.8cm, 
+    % top=2.8cm, bottom=2.8cm,
+    % left=1in, right=1in, 
+    % headheight=14.5pt
+    ]{geometry}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage[shortlabels]{enumitem}
+% \usepackage{parskip}
+\usepackage{emptypage}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+% \usepackage{cmbright}
+
+\usepackage{amsmath, amsfonts, mathtools, amsthm, amssymb}
+\usepackage{mathrsfs}
+% \usepackage{dutchcal} % \mathcal: also small letters. \mathbcal = bold ones. % https://tex.stackexchange.com/a/641540/114006
+\usepackage{braket} % https://tex.stackexchange.com/a/253232/114006
+\usepackage{cancel}
+\usepackage{bm}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e} % SeniorMars template
+\usepackage{lipsum}
+
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\newcommand\C{\ensuremath{\mathbb{C}}}
+\DeclareMathOperator{\sgn}{sgn}
+\usepackage{systeme}
+\let\svlim\lim\def\lim{\svlim\limits}
+\let\implies\Rightarrow
+\let\impliedby\Leftarrow
+\let\iff\Leftrightarrow
+\let\epsilon\varepsilon
+\usepackage{stmaryrd} % for \lightning
+\newcommand\contra{\scalebox{1.1}{$\lightning$}}
+% \let\phi\varphi
+
+
+
+
+
+% correct
+\definecolor{correct}{HTML}{009900}
+\newcommand\correct[2]{\ensuremath{\:}{\color{red}{#1}}\ensuremath{\to }{\color{correct}{#2}}\ensuremath{\:}}
+\newcommand\green[1]{{\color{correct}{#1}}}
+
+
+
+% horizontal rule
+\newcommand\hr{
+    \noindent\rule[0.5ex]{\linewidth}{0.5pt}
+}
+
+
+% hide parts
+\newcommand\hide[1]{}
+
+
+
+% si unitx
+\usepackage{siunitx}
+\sisetup{locale = FR}
+% \renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\mat[1]{\mathbf{#1}}
+
+
+% tikz
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{tikzsymbols} % for symbols such as smiley
+\usetikzlibrary{intersections, angles, quotes, calc, positioning}
+\usetikzlibrary{arrows.meta}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+
+
+\tikzset{
+    force/.style={thick, {Circle[length=2pt]}-stealth, shorten <=-1pt}
+}
+
+
+% theorems
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+% \mdfsetup{skipabove=1em,skipbelow=0em, innertopmargin=5pt, innerbottommargin=6pt}
+
+
+\theoremstyle{definition}
+
+\makeatletter
+
+
+\@ifclasswith{report}{nocolor}{
+    \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak } ]{thmgreenbox}
+    \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak } ]{thmredbox}
+    \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont]{thmbluebox}
+    \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont]{thmblueline}
+    \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no, mdframed={ rightline=false, topline=false, bottomline=false, }, qed=\qedsymbol ]{thmproofbox}
+    \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no, mdframed={ nobreak, rightline=false, topline=false, bottomline=false } ]{thmexplanationbox}
+    \AtEndEnvironment{eg}{\null\hfill$\diamond$}%
+}{
+    \declaretheoremstyle[
+        headfont=\bfseries\sffamily\color{ForestGreen!70!black}, bodyfont=\normalfont,
+        mdframed={
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
+        }
+    ]{thmgreenbox}
+
+    \declaretheoremstyle[
+        headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+        mdframed={
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=NavyBlue, backgroundcolor=NavyBlue!5,
+        }
+    ]{thmbluebox}
+
+    \declaretheoremstyle[
+        headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+        mdframed={
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=NavyBlue
+        }
+    ]{thmblueline}
+
+    \declaretheoremstyle[
+        headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+        mdframed={
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=RawSienna, backgroundcolor=RawSienna!5,
+        }
+    ]{thmredbox}
+
+    \declaretheoremstyle[
+        headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+        numbered=no,
+        mdframed={
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=RawSienna, backgroundcolor=RawSienna!1,
+        },
+        qed=\qedsymbol
+    ]{thmproofbox}
+
+    \declaretheoremstyle[
+        headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+        numbered=no,
+        mdframed={
+            linewidth=2pt,
+            rightline=false, topline=false, bottomline=false,
+            linecolor=NavyBlue, backgroundcolor=NavyBlue!1,
+        },
+    ]{thmexplanationbox}
+}
+
+
+
+
+
+\declaretheorem[style=thmgreenbox, name=Definition]{definition}
+\declaretheorem[style=thmbluebox, numbered=yes, name=Example]{eg}
+\declaretheorem[style=thmbluebox, numbered=yes, name=Exercise]{ex}
+\declaretheorem[style=thmredbox, name=Proposition]{prop}
+\declaretheorem[style=thmredbox, name=Theorem]{theorem}
+\declaretheorem[style=thmredbox, name=Lemma]{lemma}
+\declaretheorem[style=thmredbox, numbered=yes, name=Corollary]{corollary}
+\declaretheorem[style=thmredbox, name=Claim]{claim}
+\declaretheorem[style=thmredbox, name={Take away}]{takeaway}
+
+\@ifclasswith{report}{nocolor}{
+    \declaretheorem[style=thmproofbox, name=Proof]{replacementproof}
+    \declaretheorem[style=thmexplanationbox, name=Proof]{explanation}
+    \renewenvironment{proof}[1][\proofname]{\begin{replacementproof}}{\end{replacementproof}}
+}{
+    \declaretheorem[style=thmproofbox, name=Proof]{replacementproof}
+    \renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
+
+    \declaretheorem[style=thmexplanationbox, name=Proof]{tmpexplanation}
+    \newenvironment{explanation}[1][]{\vspace{-10pt}\begin{tmpexplanation}}{\end{tmpexplanation}}
+}
+
+\makeatother
+
+
+\declaretheorem[style=thmblueline, numbered=yes, name=Remark]{remark}
+\declaretheorem[style=thmblueline, numbered=yes, name=Note]{note}
+
+\newtheorem*{uovt}{UOVT}
+\newtheorem*{notation}{Notation}
+\newtheorem*{previouslyseen}{As previously seen}
+\newtheorem*{problem}{Problem}
+\newtheorem*{observe}{Observe}
+\newtheorem*{property}{Property}
+\newtheorem*{intuition}{Intuition}
+
+
+\usepackage{etoolbox}
+\AtEndEnvironment{vb}{\null\hfill$\diamond$}%
+\AtEndEnvironment{intermezzo}{\null\hfill$\diamond$}%
+% \AtEndEnvironment{opmerking}{\null\hfill$\diamond$}%
+
+% http://tex.stackexchange.com/questions/22119/how-can-i-change-the-spacing-before-theorems-with-amsthm
+% \def\thm@space@setup{%
+%   \thm@preskip=\parskip \thm@postskip=0pt
+% }
+
+\newcommand{\oefening}[1]{%
+    \def\@oefening{#1}%
+    \subsection*{Oefening #1}
+}
+
+\newcommand{\suboefening}[1]{%
+    \subsubsection*{Oefening \@oefening.#1}
+}
+
+\newcommand{\exercise}[1]{%
+    \def\@exercise{#1}%
+    \subsection*{Exercise #1}
+}
+
+\newcommand{\subexercise}[1]{%
+    \subsubsection*{Exercise \@exercise.#1}
+}
+
+
+\usepackage{xifthen}
+
+% \def\testdateparts#1{\dateparts#1\relax}
+% \def\dateparts#1 #2 #3 #4 #5\relax{
+%     \marginpar{\small\textsf{\mbox{#1 #2 #3 #5}}}
+% }
+
+% \def\@lesson{}%
+% \newcommand{\lesson}[3]{
+%     \ifthenelse{\isempty{#3}}{%
+%         \def\@lesson{Lecture #1}%
+%     }{%
+%         \def\@lesson{Lecture #1: #3}%
+%     }%
+%     \subsection*{\@lesson}
+%     \testdateparts{#2}
+% }
+
+
+% Chapter title
+\usepackage{titlesec}
+\titleformat{\chapter}[frame]
+  {\normalfont}
+  {\filright
+   \footnotesize
+   \enspace Lecture \arabic{chapter}.\enspace}
+  {8pt}
+  {\Large\bfseries\filcenter}
+\usepackage[dotinlabels]{titletoc}
+\titlecontents{chapter}[1.5em]{}{\contentslabel{2.3em}}{\hspace*{-2.3em}}{\hfill\contentspage}
+\titlespacing*{\chapter} {0pt}{0pt}{40pt}     % this alters "before" spacing (the second length argument) to 0
+
+% \renewcommand\date[1]{\marginpar{#1}}
+
+
+% % fancy headers
+% \usepackage{fancyhdr}
+% \pagestyle{fancy}
+
+% % \fancypagestyle{header}{%
+% % \fancyhead[LE,RO]{Mubtasim Fuad}
+% \fancyhead[R]{Lecture \thechapter}
+% \fancyhead[L]{}
+% \fancyfoot[C]{\thepage}
+% % \fancyfoot[C]{\leftmark}
+% % }
+
+% Style for page headers and footers
+\usepackage{fancyhdr}
+\fancypagestyle{head}{
+  \fancyhf{}     % clear all header and footer fields
+  \lhead{\courseloc}
+  \rhead{Lecture \thechapter}
+  \cfoot{\thepage}    % Use \pageref{LastPage} instead if you want to add the link
+  \renewcommand{\headrulewidth}{0.5pt}
+  \renewcommand{\footrulewidth}{0.5pt}
+}
+
+\fancypagestyle{plain}{
+  \fancyhf{}     % clear all header and footer fields
+  \rhead{\courseloc}
+  \cfoot{\thepage}    % Use \pageref{LastPage} instead if you want to add the link
+  \renewcommand{\headrulewidth}{0.5pt}
+  \renewcommand{\footrulewidth}{0.5pt}   
+}
+
+\makeatother
+
+
+% notes
+% \usepackage{todonotes} % slowdown compilation speed
+\usepackage{marginnote}
+\let\marginpar\marginnote
+
+% sidenotes with arrows in equations
+\usepackage{witharrows}
+
+% Some custom colorbox and sidenote environments
+\usepackage{tcolorbox}
+
+\tcbuselibrary{breakable}
+\newenvironment{verbetering}{\begin{tcolorbox}[
+    arc=0mm,
+    colback=white,
+    colframe=green!60!black,
+    title=Opmerking,
+    fonttitle=\sffamily,
+    breakable
+]}{\end{tcolorbox}}
+
+% \newenvironment{noot}[1]{\begin{tcolorbox}[
+%     arc=0mm,
+%     colback=white,
+%     colframe=white!60!black,
+%     title=#1,
+%     fonttitle=\sffamily,
+%     breakable
+% ]}{\end{tcolorbox}}
+
+% Side note with custom color
+\newtcolorbox{noot}[3][]
+{
+  arc=0mm,
+  colback  = white,
+  colframe = #2!50,
+  coltitle = #2!20!black,   
+  title    = {Side-note: #3},
+  fonttitle=\sffamily,
+  breakable,
+  #1,
+}
+
+% https://tex.stackexchange.com/a/172480/114006
+\newtcolorbox{mybox}[3][]
+{
+  colback  = #2!10,
+  colframe = #2!25,
+  coltitle = #2!20!black,  
+  title    = {#3},
+  #1,
+}
+
+% Side note environment with gray color and title
+\newenvironment{sidenote}[1]{\begin{noot}{gray}{#1}}{\end{noot}}
+% Side note environment with user-defined color and title
+\newenvironment{sidenotex}[2]{\begin{noot}{#1}{#2}}{\end{noot}}
+
+\newenvironment{myminipage}
+    {
+    \begin{center}
+    \begin{minipage}{0.85\textwidth}
+    %  \begin{mdframed}
+    }
+    { 
+    %  \end{mdframed}
+    \end{minipage}   
+    \end{center}
+    }
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[2]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+\graphicspath{{./figures/}}
+%% http://tex.stackexchange.com/questions/76273/multiple-pdfs-with-page-group-included-in-a-single-page-warning
+\pdfsuppresswarningpagegroup=1
+
+\newcommand{\nchapter}[2]{%
+    \setcounter{chapter}{#1}%
+    \addtocounter{chapter}{-1}%
+    \chapter{#2}
+}
+
+\newcommand{\nsection}[3]{%
+    \setcounter{chapter}{#1}%
+    \setcounter{section}{#2}%
+    \addtocounter{section}{-1}%
+    \section{#3}
+}%
+
+\usepackage{listings}
+\lstset
+{
+    language=[LaTeX]TeX,
+    breaklines=true,
+    basicstyle=\tt\scriptsize,
+    keywordstyle=\color{blue},
+    identifierstyle=\color{black},
+}
+
+% Change paragraph spacing
+\setlength{\parskip}{4pt}
+% Change paragraph indent
+\setlength{\parindent}{0cm}
+
+% for creating \NewDocumentCommand
+% \usepackage{xparse}
+
+
+%% for setting arrows beneath equations 
+
+% new command notate - https://tex.stackexchange.com/a/263491/114006
+\usepackage[usestackEOL]{stackengine}
+\usepackage{scalerel}
+
+% \parskip \baselineskip  % it's creating problem with my theorem environment box designs
+\def\svmybf#1{\rotatebox{90}{\stretchto{\{}{#1}}}
+\def\svnobf#1{}
+\def\rlwd{.5pt}
+\newcommand\notate[4][B]{%
+  \if B#1\let\myupbracefill\svmybf\else\let\myupbracefill\svnobf\fi%
+  \def\useanchorwidth{T}%
+  \setbox0=\hbox{$\displaystyle#2$}%
+  \def\stackalignment{c}\stackunder[-6pt]{%
+    \def\stackalignment{c}\stackunder[-1.5pt]{%
+      \stackunder[2pt]{\strut $\displaystyle#2$}{\myupbracefill{\wd0}}}{%
+    \rule{\rlwd}{#3\baselineskip}}}{%
+  \strut\kern9pt$\rightarrow$\smash{\rlap{$~\displaystyle#4$}}}%
+}
+
+% new command indicate - https://tex.stackexchange.com/a/15742/114006
+
+% trees
+\usepackage[linguistics]{forest}
+
+% some packages from my other templates 
+\usepackage{array} % for tables
+\usepackage[export]{adjustbox}
+% \usepackage{wrapfig} % not properly fitting here
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{extarrows}  % https://tex.stackexchange.com/a/407628/114006
+
+% bibliography
+\usepackage[
+    backend=biber, 
+    backref=true, 
+    style=numeric, 
+    sortcites=true, 
+    sorting=none, 
+    defernumbers=true
+]{biblatex}       % bibliography  % https://www.overleaf.com/learn/latex/bibliography_management_with_biblatex
+\usepackage{xurl}                % handling the urls in bib file and it should be loaded after loading biblatex 
+
+% Allow page breaks inside equation environments of amsmath package
+\allowdisplaybreaks
+
+% To cancel terms in equations with diagonal arrows
+\usepackage{cancel} % https://tex.stackexchange.com/a/75530/114006
+\usepackage{bookmark}
+% To write tensors with mixed indices
+\usepackage{tensor} % https://tex.stackexchange.com/a/25976/114006
+\usepackage{derivative} % https://tex.stackexchange.com/a/14822/114006 % https://tex.stackexchange.com/a/501336/114006
+\usepackage{annotate-equations} % https://github.com/st--/annotate-equations
+
+% To create dashed box in equations - https://tex.stackexchange.com/a/285489/114006
+\usepackage{dashbox}
+\newcommand\dboxed[1]{\dbox{\ensuremath{#1}}}
+
+% To add Left-aligned texts in equations (doesn't work in equation environment) - https://tex.stackexchange.com/a/60168/114006 
+\makeatletter
+\newif\if@gather@prefix 
+\preto\place@tag@gather{% 
+  \if@gather@prefix\iftagsleft@ 
+    \kern-\gdisplaywidth@ 
+    \rlap{\gather@prefix}% 
+    \kern\gdisplaywidth@ 
+  \fi\fi 
+} 
+\appto\place@tag@gather{% 
+  \if@gather@prefix\iftagsleft@\else 
+    \kern-\displaywidth 
+    \rlap{\gather@prefix}% 
+    \kern\displaywidth 
+  \fi\fi 
+  \global\@gather@prefixfalse 
+} 
+\preto\place@tag{% 
+  \if@gather@prefix\iftagsleft@ 
+    \kern-\gdisplaywidth@ 
+    \rlap{\gather@prefix}% 
+    \kern\displaywidth@ 
+  \fi\fi 
+} 
+\appto\place@tag{% 
+  \if@gather@prefix\iftagsleft@\else 
+    \kern-\displaywidth 
+    \rlap{\gather@prefix}% 
+    \kern\displaywidth 
+  \fi\fi 
+  \global\@gather@prefixfalse 
+} 
+\def\math@cr@@@align{%
+  \ifst@rred\nonumber\fi
+  \if@eqnsw \global\tag@true \fi
+  \global\advance\row@\@ne
+  \add@amps\maxfields@
+  \omit
+  \kern-\alignsep@
+  \if@gather@prefix\tag@true\fi
+  \iftag@
+    \setboxz@h{\@lign\strut@{\make@display@tag}}%
+    \place@tag
+  \fi
+  \ifst@rred\else\global\@eqnswtrue\fi
+  \global\lineht@\z@
+  \cr
+}
+\newcommand*{\lefttext}[1]{% 
+  \ifmeasuring@\else
+  \gdef\gather@prefix{#1}% 
+  \global\@gather@prefixtrue 
+  \fi
+} 
+\makeatother
+
+% \usepackage[none]{hyphenat}
+\usepackage{nicematrix} 
+
+% Command for circle around text [used chatgpt]
+\newcommand{\mycir}[1]{%
+    \mathchoice%
+        {\mycirAux{\displaystyle}{#1}}%
+        {\mycirAux{\textstyle}{#1}}%
+        {\mycirAux{\scriptstyle}{#1}}%
+        {\mycirAux{\scriptscriptstyle}{#1}}%
+}
+\newcommand{\mycirAux}[2]{%
+        \tikz[baseline=(char.base)]{%
+            \node[draw, circle, inner sep=1pt, font={\fontsize{8}{8}\selectfont}] (char) 
+            {\ensuremath{#1{#2}}};
+        }
+}
+
+% Custom enviroment for table-like matrix / cagedmatrix % https://tex.stackexchange.com/a/686197/114006
+
+\ExplSyntaxOn
+\NewDocumentEnvironment{cagedmatrix}{b}
+ {
+  % split the input at \\
+  \seq_set_split:Nnn \l_tmpa_seq { \\ } { #1 }
+  % check for a missing trailing \\
+  \seq_pop_right:NN \l_tmpa_seq \l_tmpa_tl
+  \tl_if_empty:NF \l_tmpa_tl { \seq_put_right:NV \l_tmpa_seq \l_tmpa_tl }
+  % build the array, inserting \\ \hline between rows
+  \array{|*{\value{MaxMatrixCols}}{c|}}\hline
+  \seq_use:Nn \l_tmpa_seq { \\ \hline }
+  % finish up
+  \\ \hline
+  \endarray
+}{}
+\ExplSyntaxOff
+
+% Another method: using ytableau but it has issues in case of horizontal-aligning with other terms in equations.  
+\usepackage{ytableau}
+
+% Another custom commnad for tabularmatrix % https://tex.stackexchange.com/a/686232/114006
+\usepackage{tabularray}
+\NewDocumentEnvironment{tabularmatrix}{+b}{
+    \begin{tblr}{
+       hlines, vlines, columns={c},
+       rowsep=0.1pt, colsep=5pt,
+       }
+    #1
+    \end{tblr}
+    }{}
+
+% Define cagedbox command
+\newcommand{\cagedbox}[1]{%
+  \begin{tabularmatrix}%
+    #1%
+  \end{tabularmatrix}%
+}
+
+%% Change formatting of back references % https://tex.stackexchange.com/a/606518/114006
+\DefineBibliographyStrings{english}{
+   backrefpage={p.},
+  % backrefpage={},
+   backrefpages={pp.}
+  % backrefpages={
+}
+\renewcommand*{\finentrypunct}{}
+\usepackage{xpatch}
+
+% \DeclareFieldFormat{backrefparens}{\mkbibparens{#1\addperiod}}
+\DeclareFieldFormat{backrefparens}{\raisebox{-4pt}{\scriptsize{\mkbibparens{#1}}}}
+\xpatchbibmacro{pageref}{parens}{backrefparens}{}{}

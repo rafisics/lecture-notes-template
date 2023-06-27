@@ -1,0 +1,183 @@
+%% From SeniorMars lecture template
+
+%From M275 "Topology" at SJSU
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\taking}[1]{\xrightarrow{#1}}
+\newcommand{\inv}{^{-1}}
+
+%From M170 "Introduction to Graph Theory" at SJSU
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\ord}{ord}
+\newcommand{\defeq}{\overset{\mathrm{def}}{=}}
+
+%From the USAMO .tex files
+\newcommand{\ts}{\textsuperscript}
+\newcommand{\dg}{^\circ}
+\newcommand{\ii}{\item}
+
+% % From Math 55 and Math 145 at Harvard
+% \newenvironment{subproof}[1][Proof]{%
+% \begin{proof}[#1] \renewcommand{\qedsymbol}{$\blacksquare$}}%
+% {\end{proof}}
+
+\newcommand{\liff}{\leftrightarrow}
+\newcommand{\lthen}{\rightarrow}
+\newcommand{\opname}{\operatorname}
+\newcommand{\surjto}{\twoheadrightarrow}
+\newcommand{\injto}{\hookrightarrow}
+\newcommand{\On}{\mathrm{On}} % ordinals
+\DeclareMathOperator{\img}{im} % Image
+\DeclareMathOperator{\Img}{Im} % Image
+\DeclareMathOperator{\coker}{coker} % Cokernel
+\DeclareMathOperator{\Coker}{Coker} % Cokernel
+\DeclareMathOperator{\Ker}{Ker} % Kernel
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Spec}{Spec} % spectrum
+\DeclareMathOperator{\Tr}{Tr} % trace
+\DeclareMathOperator{\pr}{pr} % projection
+\DeclareMathOperator{\ext}{ext} % extension
+\DeclareMathOperator{\pred}{pred} % predecessor
+\DeclareMathOperator{\dom}{dom} % domain
+\DeclareMathOperator{\ran}{ran} % range
+\DeclareMathOperator{\Hom}{Hom} % homomorphism
+\DeclareMathOperator{\Mor}{Mor} % morphisms
+\DeclareMathOperator{\End}{End} % endomorphism
+
+\newcommand{\eps}{\epsilon}
+\newcommand{\veps}{\varepsilon}
+\newcommand{\ol}{\overline}
+\newcommand{\ul}{\underline}
+\newcommand{\wt}{\widetilde}
+\newcommand{\wh}{\widehat}
+\newcommand{\vocab}[1]{\textbf{\color{blue} #1}}
+\providecommand{\half}{\frac{1}{2}}
+\newcommand{\dang}{\measuredangle} %% Directed angle
+\newcommand{\ray}[1]{\overrightarrow{#1}}
+\newcommand{\seg}[1]{\overline{#1}}
+\newcommand{\arc}[1]{\wideparen{#1}}
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator*{\lcm}{lcm}
+\DeclareMathOperator*{\argmin}{arg min}
+\DeclareMathOperator*{\argmax}{arg max}
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+\newcommand{\Qed}{\begin{flushright}\qed\end{flushright}}
+\newcommand{\parinn}{\setlength{\parindent}{1cm}}
+\newcommand{\parinf}{\setlength{\parindent}{0cm}}
+% \newcommand{\norm}{\|\cdot\|}
+\newcommand{\inorm}{\norm_{\infty}}
+\newcommand{\opensets}{\{V_{\alpha}\}_{\alpha\in I}}
+\newcommand{\oset}{V_{\alpha}}
+\newcommand{\opset}[1]{V_{\alpha_{#1}}}
+\newcommand{\lub}{\text{lub}}
+
+% OD - Ordinary derivates
+\newcommand{\od}[2]{\frac{\mathrm d #1}{\mathrm d #2}}
+\newcommand{\oD}[3]{\frac{\mathrm d^{#1} #2}{\mathrm d {#3}^{#1}}}
+% Ordinary derivates displaystyle with dfrac
+\newcommand{\odd}[2]{\dfrac{\mathrm d #1}{\mathrm d #2}}
+\newcommand{\oDd}[3]{\dfrac{\mathrm d^{#1} #2}{\mathrm d {#3}^{#1}}}
+
+% PD - Partial derivates
+\newcommand{\del}{\partial}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pD}[3]{\frac{\partial^{#1} #2}{\partial {#3}^{#1}}}
+% Partial derivates displaystyle with dfrac
+\newcommand{\pdd}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\pDd}[3]{\dfrac{\partial^{#1} #2}{\partial {#3}^{#1}}}
+
+%%%
+\newcommand{\lm}{\lambda}
+\newcommand{\uin}{\mathbin{\rotatebox[origin=c]{90}{$\in$}}}
+\newcommand{\usubset}{\mathbin{\rotatebox[origin=c]{90}{$\subset$}}}
+\newcommand{\lt}{\left}
+\newcommand{\rt}{\right}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\exs}{\exists}
+\newcommand{\st}{\strut}
+\newcommand{\dps}[1]{\displaystyle{#1}}
+
+\newcommand{\sol}{\setlength{\parindent}{0cm}\textbf{\textit{Solution:}}\setlength{\parindent}{1cm} }
+\newcommand{\solve}[1]{\setlength{\parindent}{0cm}\textbf{\textit{Solution: }}\setlength{\parindent}{1cm}#1 \Qed}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Preliminary declarations:
+%%%% These are some commands where we declare new commands for the notes
+
+% We define the macro for the name of the professor
+% \newcommand{\professor}[1]{ \newcommand{\professorloc}{#1} }
+% We define the macro for the name of the course
+\newcommand{\course}[1]{ \newcommand{\courseloc}{#1} }
+% We define the macro for the name of the institution
+\newcommand{\institute}[1]{ \newcommand{\instituteloc}{#1} }
+% We define the macro for the name of the class roll
+\newcommand{\roll}[1]{ \newcommand{\rollloc}{#1} }
+% We define the macro for the name of the class
+\newcommand{\class}[1]{ \newcommand{\classloc}{#1} }
+% We define the macro for the name of the session
+\newcommand{\session}[1]{ \newcommand{\sessionloc}{#1} }
+
+% We define the macro for my (student/author) name and email
+\newcommand*{\meloc}{}
+\newcommand*{\mynameloc}{}
+\newcommand*{\myemailloc}{}
+
+\newcommand*{\me}[2][]{%
+   \renewcommand*{\mynameloc}{#2}%
+   \if\relax\detokenize{#1}\relax
+      \renewcommand*{\meloc}{\textbf{#2}}%
+      \renewcommand*{\myemailloc}{}%
+   \else
+      \renewcommand*{\meloc}{\textbf{\href{mailto:#1}{#2}}}%
+      \renewcommand*{\myemailloc}{\texttt{\href{mailto:#1}{#1}}}%
+   \fi
+}
+
+% We define the macro for the professor's name and email
+\newcommand*{\profloc}{}
+\newcommand*{\profnameloc}{}
+\newcommand*{\profemailloc}{}
+
+\newcommand*{\professor}[2][]{%
+   \renewcommand*{\profnameloc}{#2}%
+   \if\relax\detokenize{#1}\relax
+      \renewcommand*{\profloc}{\textbf{#2}}%
+      \renewcommand*{\profemailloc}{}%
+   \else
+      \renewcommand*{\profloc}{\textbf{\href{mailto:#1}{#2}}}%
+      \renewcommand*
+      {\profemailloc}{\texttt{\href{mailto:#1}{#1}}}%
+   \fi
+}
+
+%these are auxiliary definitions used in the title section
+\newcommand{\CourseLang}{Course}
+\newcommand{\DateLang}{Submission date}
+\newcommand{\StudentLang}{Name}
+\newcommand{\ProfessorLang}{Professor}
+\newcommand{\RollLang}{Roll}          
+\newcommand{\ClassLang}{Class}                 
+\newcommand{\SessionLang}{Session}     
+\newcommand{\InstituteLang}{Institute}   
+\newcommand{\EmailLang}{Email}   
+
+
+
+% Customize author command
+% \newcommand{\myname}[1]{\gdef\printmyname{#1}}
+\author{\huge \mynameloc}
+
+% Customize title command
+\newcommand{\mytitle}[1]{\gdef\printmytitle{#1}}
+\title{\Huge Lecture Notes: \\ \courseloc}
+
+% Custom command for equation numbering inside list (itemize...)
+\newcommand{\itemnumber}{\hfill\refstepcounter{equation}(\theequation)} 
+
+% Custom commands to indicate the parts where correction, details, clarifications and diagrams are needed to add  
+\newcommand{\eqdetails}{\textcolor{red}{[need details...] }}
+\newcommand{\details}{\textcolor{red}{[need to add details here...] }}
+\newcommand{\diagram}{\textcolor{red}{[need to add diagram \& details here...] }}

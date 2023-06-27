@@ -1,0 +1,87 @@
+\lipsum[2]
+
+\section{Vector field}
+It's equivalent with the concept of `Class' in the programming language C. \\
+\diagram 
+
+\begin{align}
+    \odd{f}{\tau} &= \odd{f(x(\tau))}{\tau} \\
+    &= \pdd{f}{x^a} \notate{\boxed{\odd{x^a}{\tau}}}{1}{\equiv v^a \longrightarrow \text{velocity of the Observer}} \\
+    \boxed{\odd{f}{\tau}} &= v^a \pdd{f}{x^a} \label{df/dtau_2.8}
+    % \hphantom{\equiv v^a \longrightarrow \text{velecity of the Observer}}
+\end{align}
+If the coordinate is changed, $x \longrightarrow x'$:
+\begin{align}
+    \boxed{\odd{f}{\tau}}  &= \odd{f(x'(\tau))}{\tau} \\
+    &= v'^b \pdd{f}{x'^b}
+    % \boxed{v'^b &= p} 
+\end{align}
+Since we insist that $x \longleftrightarrow x'$:
+
+\begin{DispWithArrows}[groups, tikz={blue, font={}}]
+    v'^b \pdd{f}{x'^b} &= v^a \left( \pdd{f}{x^a} \right) \\
+    &= v^a \left( \pdd{x'^c}{x^a} \pdd{f}{x'^c} \right) \Arrow{As $c$ is a dummy index} \\
+    &= v^a \left( \pdd{x'^b}{x^a} \pdd{f}{x'^b} \right) \\
+    \implies\, \Aboxed{v'^b &= v^a \pdd{x'^b}{x^a}} \label{v'b_2.14}
+\end{DispWithArrows}
+\eqref{v'b_2.14} is the transformation property of vector components.
+
+From the eqn \eqref{df/dtau_2.8}:
+\begin{equation}
+    \odd{f}{\tau} = v^a \pdd{f}{x^a} = \hat{\left(v^a \pdd{}{x^a}\right)} f = \hat{V} f 
+\end{equation}
+
+\begin{gather}
+    v = v_a \hat{e}_x \\
+    \notate[X]{\boxed{\hat{e}_x = \pdd{}{x^a}}}{1}{\text{Coordinate basis}}
+\end{gather}
+
+\begin{gather}
+    V = V_a \hat{e}_a = V'_b \hat{e}_{b'} \\
+    \text{Here, } \hat{e}_a = M_a^b \hat{e}_{b'} \\
+    \pdd{\,\Smiley}{x^a} =  \pdd{x'^p}{x^a} \pdd{\,\Smiley}{x'^p} \qquad \text{[ \Smiley is just a placeholder ]}
+\end{gather}
+
+\begin{takeaway}[What are vector fields?]
+    Vector fields are just 1st order differential operator. \\
+    They are directional derivatives (hence operators) $D_v = (\vec{v}\cdot\nabla)$
+\end{takeaway}
+
+\section{Covariant derivative}
+\subsection{Why do regular partial derivatives fail?}
+For scalar: \\
+Scalar is invariant under a coordinate transformation. 
+
+\begin{equation}
+    \begin{tikzcd}
+      f \arrow[d, ]\arrow[r, ] & f' \arrow[d, ] \\
+      \del_a f(x) \arrow[r, ] & \del'_a f(x') \mathrlap{{} = \underbrace{\pdd{x^b}{x'^a}}_{M^{-1}}\del_b f(x)}
+    \end{tikzcd}
+    \hphantom{\pdd{x^b}{x'^a}}
+\end{equation}
+
+So, there's no problem with tensor properties.
+
+For vector: 
+\begin{equation}
+    \begin{tikzcd}
+      V^a \arrow[d, ]\arrow[r, ] & V'^a \arrow[d, ]  \mathrlap{ {} = \pdd{x'^a}{x^m} V^m } \\
+      \del_a V^a \arrow[r, ] & \del'_a V'^a \mathrlap{ {} = \del'_b \left( \pdd{x'^a}{x^m} V^m \right) }
+    \end{tikzcd}
+    \hphantom{\pdd{x'^a}{x^m} V^m}
+\end{equation}
+\begin{align}
+    \del'_a V'^a &= \del'_b \left( \pdd{x'^a}{x^m} V^m \right) \\
+    &= \pdd{x^n}{x'^b} \del_n \left( \pdd{x'^a}{x^m} V^m \right) \\
+    &= \pdd{x^n}{x'^b} \pdd{x'^a}{x^m}  \del_n V^m +  \notate[X]{\pdd{x^n}{x'^b} \left( \pdd{^2 x'^a}{x^n \del x^m} V^m \right)}{1}{\parbox[t]{2in}{This term spoils the tensor \\ transform properties}} \\ \nonumber
+\end{align}
+\bigskip 
+So, the regular partial derivatives of vectors do not transform like tensors. They don't follow the tensor properties. \\
+A covariant derivative has to transform covariantly, aka `tensorly'!
+
+We have to define: 
+\begin{equation}
+    \nabla'_b V'^a = \pdd{x^n}{x'^b} \pdd{x'^a}{x^m} \nabla_n V^m 
+\end{equation}
+
+\lipsum[2]

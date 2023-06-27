@@ -1,0 +1,45 @@
+Before starting GR, let's discuss classical field theories. Let's go through Yang-Mills original paper \cite{yang1954conservation}. 
+
+\section{Yang-Mills Field Theory}
+
+\lipsum[3]
+
+\begin{center}
+    \begin{forest}
+        [\underline{Symmetry}
+            [Global Symmetry\\ (unphysical)] [Local Symmetry]
+        ]
+    \end{forest}
+\end{center}
+
+\lipsum[2]
+
+Now, considering the derivative $D_a$ as:
+\begin{equation}
+\begin{tikzcd}
+  \Psi \arrow[d, "D_a"]\arrow[r, "U"] & \Psi' \arrow[d, ] \mathrlap{{} = U\Psi}\\
+  D_a \Psi \arrow[r, "U"] & (D_a\Psi)' \mathrlap{{} = U(D_a\Psi)}
+\end{tikzcd}
+\hphantom{{} = U(D_a\Psi)}
+\end{equation}
+\begin{equation} \text{Here, } D_a \Psi' = U D_a \Psi \end{equation}
+The derivative that satisfies this property is called a `covariant derivative'. Why covariant? Because it's a derivative that transforms covariantly. In GR, YM theory, gauge theory, everywhere - we define appreciate covariant derivatives. \details 
+
+The definition of $D_a$ on $\Psi$: 
+\begin{equation}
+ D_a \Psi = \notate{\del_a}{3}{\text{regular derivative}}\Psi + i\notate{g}{2}{\text{coupling constant}} \notate{A_a}{1}{\text{transport}} \psi \label{DaPsi_1.16}
+\end{equation}
+
+\lipsum[2]
+
+\begin{remark}
+ Claim: This is true for any 1-parameter transformation in Lie groups.
+\end{remark}
+\begin{figure}[H]
+    \centering
+    \incfig{0.3}{230318-5}
+    \caption{Lie group is a manifold. In n-dimensional space, to go from point A to B, we need to change n-parameters. But we don't have to do that, rather we can choose to go from A to B in 1 curve. By 1-parameter, we mean we can go through a curve by a single parameter. (1 smooth curve transfer motion). There are examples of certain groups where it's not possible, for example, $SL(2,\RR)$. Check Arnold \cite{arnold2013mathematical} for details.}
+    \label{fig:manifold1}
+\end{figure}
+
+\lipsum[2]

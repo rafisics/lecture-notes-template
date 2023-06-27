@@ -1,0 +1,43 @@
+\documentclass[a4paper]{report}
+
+\input{setup/preamble}
+\input{setup/macros}
+\input{setup/letterfonts}
+
+\addbibresource{gr.bib} 
+
+\course{Course/Topic Name}
+\professor[Professor's email]{Professor Name}
+\me[m.fuad.rafi@gmail.com]{}
+\institute{Institute Name}
+\class{Program Name}
+\session{Session}
+\date{Based on lectures by \profloc{} in 2023
+% \\ Notes created by Mubtasim Fuad 
+\\~\\ Draft updated on \today}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{gobble}
+\input{preface}
+\newpage
+\pagestyle{plain}
+\pagenumbering{roman}
+\pdfbookmark{\contentsname}{toc}              
+\setcounter{tocdepth}{0}
+\tableofcontents
+\newpage
+\pagestyle{head}
+\pagenumbering{arabic}
+
+% start lectures
+\chapter{Sat, Mar 18, 2023}
+\input{lectures/230318}
+\chapter{Sat, Mar 25, 2023}
+\input{lectures/230325}
+% end lectures
+
+\input{endpage}
+
+\end{document}
