@@ -18,9 +18,14 @@
 
 \begin{document}
 
+\renewcommand\thepage{Title}
 \maketitle
-\pagenumbering{gobble}
+\renewcommand\thepage{Preface} 
+% \chapter*{Preface}  % to show preface on toc
 \input{preface}
+% \addcontentsline{toc}{chapter}{\protect\numberline{}Preface} % to show preface on toc
+\pagenumbering{gobble}
+% \pagenumbering{roman}   % to show preface on toc
 \newpage
 \pagestyle{plain}
 \pagenumbering{roman}
