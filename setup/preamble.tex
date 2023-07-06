@@ -183,9 +183,6 @@
 }
 
 
-
-
-
 \declaretheorem[style=thmgreenbox, name=Definition]{definition}
 \declaretheorem[style=thmbluebox, numbered=yes, name=Example]{eg}
 \declaretheorem[style=thmbluebox, numbered=yes, name=Exercise]{ex}
@@ -624,5 +621,5 @@
 \usepackage{xpatch}
 
 % \DeclareFieldFormat{backrefparens}{\mkbibparens{#1\addperiod}}
-\DeclareFieldFormat{backrefparens}{\raisebox{-4pt}{\scriptsize{\mkbibparens{#1}}}}
+\DeclareFieldFormat{backrefparens}{\unskip.~\raisebox{-4pt}{\scriptsize{\mkbibparens{#1}}}}
 \xpatchbibmacro{pageref}{parens}{backrefparens}{}{}
